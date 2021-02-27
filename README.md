@@ -48,15 +48,16 @@
 
     01、emlog-agent----已完成
     02、flume-ng-elasticsearch-sink----已完成（扩展调试）
-    03、flume-ng-kafka-sink----进行中(扩展调试)(ing)
-    04、flume ng interceptor（支持flume独立非内嵌日志融合）扩展开发----规划中
-    05、运营日志展示模块(兼容kibana展示)----规划中
-    06、文档编写----进行中
+    03、kibana数据展示----已完成（扩展调试）
+    04、flume-ng-kafka-sink----进行中(扩展调试)(ing)
+    05、flume ng interceptor（支持flume独立非内嵌日志融合）扩展开发----规划中
+    06、运营日志展示模块(兼容kibana展示)----规划中
+    07、文档编写----进行中
     
  **二阶段** 
 
-    07、API运营日志分析模块----延期执行
-    08、监控预警模块----延期执行
+    08、API运营日志分析模块----延期执行
+    09、监控预警模块----延期执行
     
 ### emlog最新动态
 

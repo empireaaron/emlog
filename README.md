@@ -30,6 +30,12 @@
 ###
     1、实时日志系统；
     2、监控指标系统；
+    
+- 架构图
+###
+
+![image](https://user-images.githubusercontent.com/29231108/109388704-b74d5380-7943-11eb-9634-fe47f97d75ae.png)
+
 
 ### emlog生态圈
 

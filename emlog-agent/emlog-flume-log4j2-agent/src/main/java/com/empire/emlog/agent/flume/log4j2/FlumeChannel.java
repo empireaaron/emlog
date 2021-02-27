@@ -1,4 +1,4 @@
-package com.empire.emlog.agent.flume.log4j2.agent;
+package com.empire.emlog.agent.flume.log4j2;
 
 import org.apache.logging.log4j.core.config.plugins.Plugin;
 import org.apache.logging.log4j.core.config.plugins.PluginAttribute;
@@ -32,20 +32,20 @@ public class FlumeChannel {
 
     @PluginFactory
     public static FlumeChannel createFlumeChannel(@PluginAttribute("local_cache_dir") String localCacheDir,
-        @PluginAttribute(value = "local_cache_capacity", defaultInt = 10000000) int localCacheCapacity,
-        @PluginAttribute(value = "local_cache_min_storage_space",
+                                                  @PluginAttribute(value = "local_cache_capacity", defaultInt = 10000000) int localCacheCapacity,
+                                                  @PluginAttribute(value = "local_cache_min_storage_space",
             defaultInt = 524288000) int localCacheMinStorageSpace,
-        @PluginAttribute(value = "local_cache_max_file_size",
+                                                  @PluginAttribute(value = "local_cache_max_file_size",
             defaultString = "134217728") String localCacheMaxFileSize,
-        @PluginAttribute(value = "local_cache_data_dir_num", defaultInt = 4) int localCacheDataDirNum,
-        @PluginAttribute(value = "local_cache_checkpoint_interval",
+                                                  @PluginAttribute(value = "local_cache_data_dir_num", defaultInt = 4) int localCacheDataDirNum,
+                                                  @PluginAttribute(value = "local_cache_checkpoint_interval",
             defaultLong = 30000L) long localCacheCheckpointInterval,
-        @PluginAttribute(value = "local_cache_backup_checkpoint",
+                                                  @PluginAttribute(value = "local_cache_backup_checkpoint",
             defaultBoolean = true) boolean localCacheBackupCheckpoint,
-        @PluginAttribute(value = "local_cache_checkpoint_on_close") boolean localCacheCheckpointOnClose,
-        @PluginAttribute(value = "local_cache_transaction_capacity",
+                                                  @PluginAttribute(value = "local_cache_checkpoint_on_close") boolean localCacheCheckpointOnClose,
+                                                  @PluginAttribute(value = "local_cache_transaction_capacity",
             defaultInt = 6000) int localCacheTransactionCapacity,
-        @PluginAttribute(value = "local_cache_request_timeout", defaultInt = 10) int localCacheRequestTimeout) {
+                                                  @PluginAttribute(value = "local_cache_request_timeout", defaultInt = 10) int localCacheRequestTimeout) {
         FlumeChannel channel = new FlumeChannel(localCacheDir);
         channel.localCacheCapacity = localCacheCapacity;
         channel.localCacheMinStorageSpace = localCacheMinStorageSpace;

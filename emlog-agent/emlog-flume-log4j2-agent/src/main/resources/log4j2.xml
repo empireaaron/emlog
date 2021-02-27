@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="info" packages="com.empire.emlog.agent.flume.log4j2.agent">
+    <Properties>
+        <Property name="log_path">logs</Property>
+        <Property name="base_layout">%d{yyyy-MM-dd HH:mm:ss} %5p %c{10}\:%L \: %m%n</Property>
+        <Property name="simple_layout">%d{yyyy-MM-dd HH:mm:ss} %5p %c{10}\:%L \: %m%n
+        </Property>
+        <property name="LOG_HOME">/data/logs</property>
+        <property name="APP_NAME">flume-log4j2-em-agent</property>
+        <property name="FLUME_SERVER">127.0.0.1:41414</property>
+    </Properties>
+    <Appenders>
+        <Console name="console" target="SYSTEM_OUT">
+            <PatternLayout pattern="${base_layout}"/>
+        </Console>
+
+        <!--        <RollingFile name="dailyFile" fileName="${log_path}/app.log"-->
+        <!--                     filePattern="${log_path}/app-%d{yyyy-MM-dd}.log">-->
+        <!--            <PatternLayout pattern="${base_layout}"/>-->
+        <!--            <Policies>-->
+        <!--                <TimeBasedTriggeringPolicy interval="1"/>-->
+        <!--                <SizeBasedTriggeringPolicy size="100 MB"/>-->
+        <!--            </Policies>-->
+        <!--            <DefaultRolloverStrategy max="20"/>-->
+        <!--        </RollingFile>-->
+        <!--        &lt;!&ndash; 这个就是自定义的Appender &ndash;&gt;-->
+        <!--        <GUIConsoleAppender name="guiConsoleAppender">-->
+        <!--            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] [%-5p] {%F:%L} - %m%n"/>-->
+        <!--        </GUIConsoleAppender>-->
+        <Log4j2EmAgentAppender name="log4j2EmAgentAppender" local_cache_dir="${LOG_HOME}/${APP_NAME}/flumeES/"
+                               appName="${APP_NAME}"
+                               servers="${FLUME_SERVER}" debug="true">
+            <PatternLayout pattern="%t %d{yyyy-MM-dd HH:mm:ss} %l [%p] [%X{trace}]%m%n"/>
+        </Log4j2EmAgentAppender>
+    </Appenders>
+    <Loggers>
+        <!-- Application Loggers -->
+        <logger name="com.empire" level="DEBUG" additivity="true"/>
+        <Logger name="org.apache.flume" level="warn" additivity="false">
+            <AppenderRef ref="console"/>
+        </Logger>
+        <Root level="INFO">
+            <AppenderRef ref="console"/>
+            <AppenderRef ref="log4j2EmAgentAppender"/>
+            <!--            <AppenderRef ref="dailyFile"/>-->
+            <!--            <AppenderRef ref="guiConsoleAppender"/>-->
+        </Root>
+    </Loggers>
+</Configuration>

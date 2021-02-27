@@ -3,7 +3,7 @@
 // (powered by Fernflower decompiler)
 //
 
-package com.empire.emlog.agent.flume.log4j2.agent;
+package com.empire.emlog.agent.flume.log4j2;
 
 import java.util.HashMap;
 import java.util.Map;

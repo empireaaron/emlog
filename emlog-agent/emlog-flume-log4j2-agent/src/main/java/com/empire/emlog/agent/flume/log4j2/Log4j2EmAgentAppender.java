@@ -1,4 +1,4 @@
-package com.empire.emlog.agent.flume.log4j2.agent;
+package com.empire.emlog.agent.flume.log4j2;
 
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import com.lmax.disruptor.EventFactory;
@@ -121,15 +121,15 @@ public class Log4j2EmAgentAppender extends AbstractAppender {
 
     @PluginFactory
     public static Log4j2EmAgentAppender createLog4j2EmAgentAppender(@PluginAttribute("name") String name,
-        @PluginAttribute("appName") String appName, @PluginAttribute("servers") String servers,
-        @PluginAttribute("sourceIp") String sourceIp, @PluginAttribute("local_cache_dir") String localCacheDir,
-        @PluginAttribute(value = "debug") boolean debug,
-        @PluginAttribute(value = "agentNum", defaultInt = 1) int agentNum,
-        @PluginAttribute(value = "writeLogLocation", defaultBoolean = true) boolean writeLogLocation,
-        @PluginElement("flumeAgentConfig") FlumeAgentConfig flumeAgentConfig,
-        @PluginAttribute("ignoreExceptions") boolean ignoreExceptions,
-        @PluginElement("properties") Property[] properties,
-        @PluginElement("Layout") Layout<? extends Serializable> layout, @PluginElement("Filter") final Filter filter) {
+                                                                    @PluginAttribute("appName") String appName, @PluginAttribute("servers") String servers,
+                                                                    @PluginAttribute("sourceIp") String sourceIp, @PluginAttribute("local_cache_dir") String localCacheDir,
+                                                                    @PluginAttribute(value = "debug") boolean debug,
+                                                                    @PluginAttribute(value = "agentNum", defaultInt = 1) int agentNum,
+                                                                    @PluginAttribute(value = "writeLogLocation", defaultBoolean = true) boolean writeLogLocation,
+                                                                    @PluginElement("flumeAgentConfig") FlumeAgentConfig flumeAgentConfig,
+                                                                    @PluginAttribute("ignoreExceptions") boolean ignoreExceptions,
+                                                                    @PluginElement("properties") Property[] properties,
+                                                                    @PluginElement("Layout") Layout<? extends Serializable> layout, @PluginElement("Filter") final Filter filter) {
 
         // flume config init
         if (flumeAgentConfig == null) {

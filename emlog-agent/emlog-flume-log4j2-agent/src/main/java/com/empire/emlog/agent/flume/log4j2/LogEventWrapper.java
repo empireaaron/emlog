@@ -1,10 +1,9 @@
-package com.empire.emlog.agent.flume.log4j2.agent;
+package com.empire.emlog.agent.flume.log4j2;
 
 import com.alibaba.fastjson.JSON;
 import org.apache.flume.event.SimpleEvent;
 import org.apache.logging.log4j.Level;
 
-import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.Map;

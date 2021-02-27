@@ -1,4 +1,4 @@
-package com.empire.emlog.agent.flume.log4j2.agent;
+package com.empire.emlog.agent.flume.log4j2;
 
 import com.lmax.disruptor.EventHandler;
 import org.apache.flume.agent.embedded.EmbeddedAgent;

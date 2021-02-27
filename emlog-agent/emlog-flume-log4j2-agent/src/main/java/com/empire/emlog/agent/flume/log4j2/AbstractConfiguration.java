@@ -1,4 +1,4 @@
-package com.empire.emlog.agent.flume.log4j2.agent;
+package com.empire.emlog.agent.flume.log4j2;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.flume.FlumeException;

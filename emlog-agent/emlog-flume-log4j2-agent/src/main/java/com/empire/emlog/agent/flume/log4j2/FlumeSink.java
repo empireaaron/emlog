@@ -1,4 +1,4 @@
-package com.empire.emlog.agent.flume.log4j2.agent;
+package com.empire.emlog.agent.flume.log4j2;
 
 import org.apache.logging.log4j.core.config.plugins.Plugin;
 import org.apache.logging.log4j.core.config.plugins.PluginAttribute;
@@ -33,12 +33,12 @@ public class FlumeSink {
 
     @PluginFactory
     public static FlumeSink createFlumeChannel(@PluginAttribute("servers") String servers,
-        @PluginAttribute(value = "servers_load_balance", defaultString = "round_robin") String serversLoadBalance,
-        @PluginAttribute(value = "servers_max_io_workers", defaultInt = 4) int serversMaxIoWorkers,
-        @PluginAttribute(value = "servers_max_backoff", defaultInt = 6000) int serversMaxBackoff,
-        @PluginAttribute(value = "servers_connect_timeout", defaultInt = 8000) int serversConnectTimeout,
-        @PluginAttribute(value = "servers_request_timeout", defaultInt = 8000) int serversRequestTimeout,
-        @PluginAttribute(value = "servers_transaction_capacity", defaultInt = 300) int serversTransactionCapacity) {
+                                               @PluginAttribute(value = "servers_load_balance", defaultString = "round_robin") String serversLoadBalance,
+                                               @PluginAttribute(value = "servers_max_io_workers", defaultInt = 4) int serversMaxIoWorkers,
+                                               @PluginAttribute(value = "servers_max_backoff", defaultInt = 6000) int serversMaxBackoff,
+                                               @PluginAttribute(value = "servers_connect_timeout", defaultInt = 8000) int serversConnectTimeout,
+                                               @PluginAttribute(value = "servers_request_timeout", defaultInt = 8000) int serversRequestTimeout,
+                                               @PluginAttribute(value = "servers_transaction_capacity", defaultInt = 300) int serversTransactionCapacity) {
         FlumeSink sink = new FlumeSink(servers);
         sink.serversLoadBalance = serversLoadBalance;
         sink.serversMaxIoWorkers = serversMaxIoWorkers;

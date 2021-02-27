@@ -3,7 +3,7 @@
 // (powered by Fernflower decompiler)
 //
 
-package com.empire.emlog.agent.flume.log4j2.agent;
+package com.empire.emlog.agent.flume.log4j2;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.Logger;
@@ -43,8 +43,8 @@ public final class FlumeAgentConfig {
 
     @PluginFactory
     public static FlumeAgentConfig createFlumeAgentConfig(@PluginElement("channel") FlumeChannel channel,
-        @PluginElement("sink") FlumeSink sink, @PluginAttribute("servers") String servers,
-        @PluginAttribute("local_cache_dir") String localCacheDir) {
+                                                          @PluginElement("sink") FlumeSink sink, @PluginAttribute("servers") String servers,
+                                                          @PluginAttribute("local_cache_dir") String localCacheDir) {
         if (channel == null) {
             logger.warn("flume channel config cannot be null, it will initialize by default");
             channel = new FlumeChannel();

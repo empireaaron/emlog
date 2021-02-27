@@ -14,6 +14,10 @@ public abstract class AbstractConfiguration {
     private Properties props;
     private Properties defaultProps;
     private Properties original;
+    private static final String CHANNEL_LOCAL_CACHE_DIR = "channel.local_cache_dir";
+    private static final int CHANNEL_LOCAL_CACHE_DIR_NUM_VALUE = 4;
+    private static final String CHANNEL_LOCAL_CACHE_BACKUP_CHECKPOINT = "channel.local_cache_backup_checkpoint";
+    private static final String CHANNEL_LOCAL_CACHE_CHECKPOINT_ON_CLOSE = "channel.local_cache_checkpoint_on_close";
 
     Map<String, String> configure(Properties props, Properties defaultProps) {
         this.props = props;
@@ -51,14 +55,14 @@ public abstract class AbstractConfiguration {
         conf.put("channel.capacity", original.getProperty("channel.local_cache_capacity"));
         conf.put("channel.minimumRequiredSpace", original.getProperty("channel.local_cache_min_storage_space"));
         conf.put("channel.maxFileSize", original.getProperty("channel.local_cache_max_file_size"));
-        if (original.getProperty("channel.local_cache_dir") == null
-            || "".equals(original.getProperty("channel.local_cache_dir"))) {
+        if (original.getProperty(CHANNEL_LOCAL_CACHE_DIR) == null
+            || "".equals(original.getProperty(CHANNEL_LOCAL_CACHE_DIR))) {
             throw new FlumeException(original.getProperty("agent.name") + " local_cache_dir is empty!");
         }
         //
         Integer lcdNum = Integer.parseInt(original.getProperty("channel.local_cache_data_dir_num"));
 
-        if (lcdNum < 4) {
+        if (lcdNum < CHANNEL_LOCAL_CACHE_DIR_NUM_VALUE) {
             throw new FlumeException(original.getProperty("agent.name") + " local_cache_data_dir_num < 4 !");
         }
         String[] dataDirArr = new String[lcdNum];
@@ -72,13 +76,13 @@ public abstract class AbstractConfiguration {
         String checkpointDir = original.getProperty("channel.local_cache_dir") + '/' + "checkpoint";
         conf.put("channel.checkpointDir", checkpointDir);
         conf.put("channel.checkpointInterval", original.getProperty("channel.local_cache_checkpoint_interval"));
-        if (Boolean.valueOf(original.getProperty("channel.local_cache_backup_checkpoint"))) {
+        if (Boolean.valueOf(original.getProperty(CHANNEL_LOCAL_CACHE_BACKUP_CHECKPOINT))) {
             conf.put("channel.useDualCheckpoints", String.valueOf(true));
             String backupCheckpointDir = original.getProperty("channel.local_cache_dir") + '/' + "backupCheckpoint";
             conf.put("channel.backupCheckpointDir", backupCheckpointDir);
         }
 
-        if (!Boolean.valueOf(original.getProperty("channel.local_cache_checkpoint_on_close"))) {
+        if (!Boolean.valueOf(original.getProperty(CHANNEL_LOCAL_CACHE_CHECKPOINT_ON_CLOSE))) {
             conf.put("channel.checkpointOnClose", original.getProperty("channel.local_cache_checkpoint_on_close"));
         }
 

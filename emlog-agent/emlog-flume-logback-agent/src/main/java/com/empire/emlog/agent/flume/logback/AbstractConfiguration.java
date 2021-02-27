@@ -12,6 +12,7 @@ import org.apache.flume.FlumeException;
 public abstract class AbstractConfiguration {
     private String name;
     private FlumeAgentConfig flumeAgentConfig;
+    private static final int CHANNEL_LOCAL_CACHE_DIR_NUM_VALUE = 4;
 
     private String getName() {
         return name;
@@ -45,7 +46,7 @@ public abstract class AbstractConfiguration {
         if (StringUtils.isBlank(channel.getLocalCacheDir())) {
             throw new FlumeException(this.getName() + " local_cache_dir is empty!");
         }
-        if (channel.getLocalCacheDataDirNum() < 4) {
+        if (channel.getLocalCacheDataDirNum() < CHANNEL_LOCAL_CACHE_DIR_NUM_VALUE) {
             throw new FlumeException(this.getName() + " local_cache_data_dir_num < 4 !");
         }
         String[] dataDirArr = new String[channel.getLocalCacheDataDirNum()];

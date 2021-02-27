@@ -3,19 +3,13 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>emlog</artifactId>
+        <artifactId>emlog-agent</artifactId>
         <groupId>com.empire.emlog</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>emlog-agent</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>emlog-flume-log4j2-agent</module>
-        <module>emlog-flume-log4j-agent</module>
-        <module>emlog-flume-logback-agent</module>
-    </modules>
+    <artifactId>emlog-flume-logback-agent</artifactId>
 
 
 </project>

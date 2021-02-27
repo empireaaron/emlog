@@ -27,7 +27,7 @@
     </appender>
 
     <!--class:自定义的Appender路径-->
-    <appender name="LogbackEmAgentAppender" class="com.empire.flume.agent.logback.LogbackEmAgentAppender">
+    <appender name="LogbackEmAgentAppender" class="com.empire.emlog.agent.flume.logback.LogbackEmAgentAppender">
 
         <layout>
             <pattern>%date [%thread] %-5level %logger - %msg%n</pattern>

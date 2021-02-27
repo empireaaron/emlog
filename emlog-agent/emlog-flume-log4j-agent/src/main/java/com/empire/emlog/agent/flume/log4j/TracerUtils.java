@@ -20,6 +20,10 @@ import java.util.Enumeration;
  * Tracer's tool class, this tool class is an internal tool class, please do not rely on non-Tracer related JAR
  * packages.
  */
+
+/**
+ * @author aaron.xu
+ */
 public class TracerUtils {
 
     private static int TRACE_PENETRATE_ATTRIBUTE_MAX_LENGTH = -1;

@@ -13,10 +13,10 @@ import java.util.Map;
  */
 public abstract class AbstractContext {
     private static ThreadLocal<Map<String, Object>> tl = new ThreadLocal<>();
-    private static final int mapCap = 16;
-    private static final float mapLoadFactor = 1.0F;
-    private static final String sb = "sb";
-    private static final int sbCap = 256;
+    private static final int MAP_CAP = 16;
+    private static final float MAP_LOAD_FACTOR = 1.0F;
+    private static final String SB = "sb";
+    private static final int SB_CAP = 256;
 
     public AbstractContext() {}
 
@@ -26,10 +26,10 @@ public abstract class AbstractContext {
 
     private static StringBuilder getStringBuilder(boolean clean) {
         Map<String, Object> m = getMap();
-        StringBuilder b = (StringBuilder)m.get(sb);
+        StringBuilder b = (StringBuilder)m.get(SB);
         if (b == null) {
-            b = new StringBuilder(sbCap);
-            m.put(sb, b);
+            b = new StringBuilder(SB_CAP);
+            m.put(SB, b);
         } else if (clean) {
             b.delete(0, b.length());
         }
@@ -40,7 +40,7 @@ public abstract class AbstractContext {
     private static Map<String, Object> getMap() {
         Map<String, Object> m = tl.get();
         if (m == null) {
-            m = new HashMap<>(mapCap, mapLoadFactor);
+            m = new HashMap<>(MAP_CAP, MAP_LOAD_FACTOR);
             tl.set(m);
         }
 

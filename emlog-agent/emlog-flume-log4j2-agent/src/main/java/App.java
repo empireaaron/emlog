@@ -2,7 +2,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Hello world!
+ * @author aaron.xu
  */
 public class App {
     private static final Logger logger = LoggerFactory.getLogger(App.class);

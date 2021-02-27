@@ -17,13 +17,14 @@
 
 - 技术
 ### 
-   emlog-agent：log4j、log4j2、logback append + disruptor + flume Agent
-   flume：flume-ng-elasticsearch-sink + flume-hdfs-sink + flume-ng-kafka-sink
-   kafka：实时分析数据缓冲MQ
-   flink：实时计算框架
-   hadoop：日志长期归档存储（hdfs）分析等
-   elasticsearch：短期实时日志存储
-   InfluxDB：API访问数据存储
+
+    emlog-agent：log4j、log4j2、logback append + disruptor + flume Agent
+    flume：flume-ng-elasticsearch-sink + flume-hdfs-sink + flume-ng-kafka-sink
+    kafka：实时分析数据缓冲MQ
+    flink：实时计算框架
+    hadoop：日志长期归档存储（hdfs）分析等
+    elasticsearch：短期实时日志存储
+    InfluxDB：API访问数据存储
    
 - em团队后期两款产品：
 ###

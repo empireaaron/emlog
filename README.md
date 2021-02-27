@@ -58,4 +58,10 @@
     2.flume-ng-elasticsearch-sink[2021-02]
     3.flume-ng-kafka-sink----进行中(扩展调试)(ing)[2021-03]
     4.flume ng interceptor（支持flume独立非内嵌日志融合）扩展开发-待启动[2021-03-10]
+
+### emlog效果
+
+![image](https://user-images.githubusercontent.com/29231108/109386285-a77a4300-7934-11eb-84fd-6db7457e42a0.png)
+![image](https://user-images.githubusercontent.com/29231108/109386309-ce387980-7934-11eb-8efb-37882ce2f537.png)
+
  

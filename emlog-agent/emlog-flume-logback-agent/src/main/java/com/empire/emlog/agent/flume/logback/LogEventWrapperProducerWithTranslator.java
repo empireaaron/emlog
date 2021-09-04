@@ -18,7 +18,7 @@ class LogEventWrapperProducerWithTranslator {
             @Override
             public void translateTo(LogEventWrapper event, long sequence, ILoggingEvent logEvent) {
                 event.setLoggerName(logEvent.getLoggerName());
-                event.setLevel(logEvent.getLevel());
+                event.setLevel(logEvent.getLevel().levelStr);
                 event.setTimeMillis(logEvent.getTimeStamp());
                 event.setThreadName(logEvent.getThreadName());
                 event.setMessage(logEvent.getFormattedMessage());

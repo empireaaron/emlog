@@ -1,12 +1,12 @@
 package com.empire.emlog.agent.flume.log4j2;
 
-import com.alibaba.fastjson.JSON;
-import org.apache.flume.event.SimpleEvent;
-import org.apache.logging.log4j.Level;
-
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.Map;
+
+import org.apache.flume.event.SimpleEvent;
+
+import com.alibaba.fastjson.JSON;
 
 /**
  * @author aaron.xu
@@ -18,15 +18,14 @@ public class LogEventWrapper {
     private int lineNumber;
     private String loggerName;
     private long timeMillis;
-    private Level level;
+    private String level;
     private String threadName;
     private String message;
     private Object[] parameters;
     private Throwable thrown;
     private Throwable t = null;
 
-    void buildFlumeEvent(SimpleEvent simpleEvent, String appName, String sourceIp)
-        throws EventBuildException {
+    void buildFlumeEvent(SimpleEvent simpleEvent, String appName, String sourceIp) throws EventBuildException {
         try {
             this.appName = appName;
             this.sourceIp = sourceIp;
@@ -48,7 +47,7 @@ public class LogEventWrapper {
         headers.put("sourceIp", this.sourceIp);
         headers.put("logger", this.loggerName);
         headers.put("timestamp", String.valueOf(this.timeMillis));
-        headers.put("level", this.level.toString());
+        headers.put("level", this.level);
         headers.put("thread", this.threadName);
     }
 
@@ -122,11 +121,11 @@ public class LogEventWrapper {
         this.timeMillis = timeMillis;
     }
 
-    public Level getLevel() {
+    public String getLevel() {
         return level;
     }
 
-    void setLevel(Level level) {
+    void setLevel(String level) {
         this.level = level;
     }
 

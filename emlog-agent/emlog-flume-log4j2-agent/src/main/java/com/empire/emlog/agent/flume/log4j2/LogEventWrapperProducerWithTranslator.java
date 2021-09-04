@@ -1,8 +1,9 @@
 package com.empire.emlog.agent.flume.log4j2;
 
+import org.apache.logging.log4j.core.LogEvent;
+
 import com.lmax.disruptor.EventTranslatorOneArg;
 import com.lmax.disruptor.RingBuffer;
-import org.apache.logging.log4j.core.LogEvent;
 
 /**
  * @author aaron.xu
@@ -15,7 +16,7 @@ class LogEventWrapperProducerWithTranslator {
         new EventTranslatorOneArg<LogEventWrapper, LogEvent>() {
             @Override
             public void translateTo(LogEventWrapper event, long sequence, LogEvent logEvent) {
-                event.setLevel(logEvent.getLevel());
+                event.setLevel(logEvent.getLevel().toString());
                 event.setTimeMillis(logEvent.getTimeMillis());
                 event.setThreadName(logEvent.getThreadName());
                 event.setMessage(logEvent.getMessage().getFormattedMessage());
